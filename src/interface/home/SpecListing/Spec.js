@@ -25,8 +25,6 @@ class Spec extends React.PureComponent {
 
     const Component = exampleReport ? 'a' : 'div';
 
-    const builtinfo = (contributors.length !== 0) ? 'Built by ' : 'CURRENTLY UNMAINTAINED';
-
     return (
       <Component
         key={spec.id}
@@ -44,9 +42,9 @@ class Spec extends React.PureComponent {
         </div>
         <div className="description">
           <h1 className={className}>{spec.specName} {spec.className}</h1>
-          {builtinfo}<ReadableList>
+          Built by <ReadableList>
             {contributors.map(contributor => <Contributor key={contributor.nickname} link={false} {...contributor} />)}
-            </ReadableList>.<br />
+          </ReadableList>.<br />
           Accurate for patch {patchCompatibility}
         </div>
       </Component>

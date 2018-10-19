@@ -25,8 +25,6 @@ class About extends React.PureComponent {
   render() {
     const { spec, description, contributors, patchCompatibility } = this.props.config;
 
-    const contributorinfo = (contributors.length !== 0) ? contributors.map(contributor => <Contributor key={contributor.nickname} {...contributor} />) : 'CURRENTLY UNMAINTAINED';
-
     return (
       <div className="panel">
         <div className="panel-heading">
@@ -45,7 +43,7 @@ class About extends React.PureComponent {
             </div>
             <div className="col-lg-8">
               <ReadableList>
-                {contributorinfo}
+                {contributors.map(contributor => <Contributor key={contributor.nickname} {...contributor} />)}
               </ReadableList>
             </div>
           </div>
